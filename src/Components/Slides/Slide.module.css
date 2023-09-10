@@ -1,0 +1,24 @@
+.slideItem {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    height: 150px;
+    background-color: #121212;
+    width: 100%;
+}
+.slideItemContainer {
+    color: white;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+.slideNumber {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.slideContent {
+    flex: 1;
+}

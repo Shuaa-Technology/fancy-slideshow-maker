@@ -1,0 +1,9 @@
+.EditorPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.MainLayout {
+    display: flex;
+    flex-grow: 1;
+}

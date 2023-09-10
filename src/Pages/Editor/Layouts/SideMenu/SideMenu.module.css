@@ -1,0 +1,6 @@
+.SideMenu {
+    width: 100%;
+    background-color: rgb(255, 0, 242);
+    /* assuming that its not needed for now */
+    display: none;
+}
