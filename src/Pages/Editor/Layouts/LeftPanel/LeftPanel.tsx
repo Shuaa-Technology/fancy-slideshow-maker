@@ -5,7 +5,7 @@ import SlidesList from "../../../../Components/Slides/SlidesList";
 function LeftPanel() {
     return (
         <div className={style.LeftPanel}>
-            <SlidesList></SlidesList>
+            Left Panel
         </div>
     );
 }

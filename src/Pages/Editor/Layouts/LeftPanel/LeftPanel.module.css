@@ -1,10 +1,8 @@
 .LeftPanel {
-    width: 100%;
     background-color: #1A1A1B;
-    flex: .20;
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    width: 17%;
 }
 .Custom {
     background-color: gold;

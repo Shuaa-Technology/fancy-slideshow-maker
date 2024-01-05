@@ -1,5 +1,22 @@
 .Viewport {
-    width: 100%;
     background-color: #121212;
-    flex: .6;
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 70%;
+}
+.ViewportMain {
+    align-items: center;
+    box-sizing: border-box;
+    flex-direction: row;
+    flex-shrink: 0;
+    justify-content: center;
+    display: flex;
+    flex: 80%;
+}
+.ViewportFooter {
+    flex: 100px;
+    background-color: #080808;
+
 }

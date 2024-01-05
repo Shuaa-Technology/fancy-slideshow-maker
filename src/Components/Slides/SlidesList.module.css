@@ -1,19 +1,18 @@
 /* SlidesList.module.css */
 .slidesList {
+    height: 100%;
+
 }
 
 .slidesContainer {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    column-gap: 10px;
     padding: 10px;
     overflow: auto;
-    overflow: auto;
-    max-height: 100vh;
-
+    height: 100%;
 }
 ::-webkit-scrollbar {
-    width: 10px;
+    height: 10px;
     background-color: #333; /* Background color of the scrollbar track */
 }
 
