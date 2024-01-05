@@ -1,10 +1,11 @@
 .SideMenu {
-    width: 70px;
     background-color: rgb(12 12 12);
     display: flex;
 }
 
-
+.bottomMenu {
+    margin-top: auto;
+}
 .verticalMenu {
     display: flex;
     flex-direction: column;

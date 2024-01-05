@@ -2,7 +2,7 @@
 
 import React from "react";
 import style from "./SideMenu.module.css";
-import { FaImage, FaShapes, FaFont } from "react-icons/fa"; // Import icons from react-icons library
+import { FaImage, FaShapes, FaFont, FaUser } from "react-icons/fa"; // Import icons from react-icons library
 
 interface MenuItemProps {
     icon: JSX.Element;
@@ -16,6 +16,10 @@ function SideMenu() {
                 <MenuItem icon={<FaImage />} text="Images" />
                 <MenuItem icon={<FaShapes />} text="Shapes" />
                 <MenuItem icon={<FaFont />} text="Text" />
+
+                <div className={style.bottomMenu}>
+                    <MenuItem icon={<FaUser />} text="Account" />
+                </div>
             </div>
         </div>
     );

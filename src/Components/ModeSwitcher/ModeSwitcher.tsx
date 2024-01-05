@@ -33,7 +33,6 @@ function ModeSwitcher() {
                     onClick={() => handleModeToggle(mode.id)}
                 >
                     {mode.icon}
-                    {mode.name}
                 </div>
             ))}
         </div>

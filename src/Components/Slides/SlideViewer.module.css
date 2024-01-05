@@ -1,6 +1,15 @@
-.SlideViewerContainer {
-    width: 1920px;
-    height: 1080px;
-    zoom: 30%;
+.SlideViewerInner {
+    width: 800px;
+    height: 500px;
     background-color: white;
+    transition: transform 0.3s ease; /* Add a smooth transition for zoom effect */
+
+}
+
+.SlideViewerZoom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    color: white;
 }
