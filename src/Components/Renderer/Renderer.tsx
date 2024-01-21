@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import styles from "./SlideViewer.module.css";
+import styles from "./Renderer.module.css";
 
-function SlideViewer() {
+function Renderer() {
     const [zoomLevel, setZoomLevel] = useState(80); // Initial zoom level, you can set it to any default value
 
     const handleZoomChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,15 +9,15 @@ function SlideViewer() {
         setZoomLevel(newZoomLevel);
     };
 
-    const slideViewerInnerStyle = {
+    const RendererInnerStyle = {
         transform: `scale(${zoomLevel / 100})`, // Adjust the zoom level dynamically
     };
 
     return (
-        <div className={styles.SlideViewerContainer}>
-            <div className={styles.SlideViewerInner} style={slideViewerInnerStyle}></div>
-            <div className={styles.SlideViewerControls}>
-                <div className={styles.SlideViewerZoom}>
+        <div className={styles.RendererContainer}>
+            <div className={styles.RendererInner} style={RendererInnerStyle}></div>
+            <div className={styles.RendererControls}>
+                <div className={styles.RendererZoom}>
                     <input
                         type="range"
                         min={0}
@@ -33,4 +33,4 @@ function SlideViewer() {
     );
 }
 
-export default SlideViewer;
+export default Renderer;

@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./LeftPanel.module.css";
-import SlidesList from "../../../../Components/Slides/SlidesList";
+import SlidesList from "../../../../Components/Slides/SlidesList/SlidesList";
 
 function LeftPanel() {
     return (

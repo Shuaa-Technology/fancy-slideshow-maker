@@ -1,4 +1,4 @@
-.Viewport {
+.MainContainer {
     background-color: #121212;
     display: flex;
     flex: auto;
@@ -6,7 +6,7 @@
     justify-content: flex-end;
     width: 70%;
 }
-.ViewportMain {
+.MainContainerMain {
     align-items: center;
     box-sizing: border-box;
     flex-direction: row;
@@ -15,7 +15,7 @@
     display: flex;
     flex: 80%;
 }
-.ViewportFooter {
+.MainContainerFooter {
     flex: 100px;
     background-color: #080808;
 

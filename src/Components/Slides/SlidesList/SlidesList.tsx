@@ -1,4 +1,4 @@
-import Slide from "./Slide";
+import Slide from "../Slide/Slide";
 import styles from "./SlidesList.module.css";
 
 function SlidesList() {

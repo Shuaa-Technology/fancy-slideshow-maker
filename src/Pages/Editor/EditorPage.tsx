@@ -3,7 +3,7 @@ import LeftPanel from "./Layouts/LeftPanel/LeftPanel";
 import RightPanel from "./Layouts/RightPanel/RightPanel";
 import SideMenu from "./Layouts/SideMenu/SideMenu";
 import TopMenu from "./Layouts/TopMenu/TopMenu";
-import Viewport from "./Layouts/Viewport/Viewport";
+import MainContainer from "./Layouts/MainContainer/MainContainer";
 
 import style from "./EditorPage.module.css";
 
@@ -14,7 +14,7 @@ function EditorPage() {
             <div className={style.MainLayout}>
                 <SideMenu></SideMenu>
                 <LeftPanel></LeftPanel>
-                <Viewport></Viewport>
+                <MainContainer />
                 <RightPanel></RightPanel>
             </div>
         </div>
