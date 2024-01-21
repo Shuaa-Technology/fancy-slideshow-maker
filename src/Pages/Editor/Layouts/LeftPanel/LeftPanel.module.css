@@ -1,9 +1,0 @@
-.LeftPanel {
-    background-color: #1A1A1B;
-    display: flex;
-    flex-direction: column;
-    width: 17%;
-}
-.Custom {
-    background-color: gold;
-}

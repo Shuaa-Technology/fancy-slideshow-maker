@@ -1,0 +1,46 @@
+.reactTabs {
+    display: flex;
+    height: 100%;
+}
+.accountItem {
+    margin-top: auto;
+    margin-bottom: 5px;
+}
+.tabList {
+    list-style: none;
+    padding: 6px;
+    margin: 0;
+    background-color: rgb(12, 12, 12);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.LeftPanel {
+    background-color: #1A1A1B;
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+}
+.tabsPanel {
+    color: white;
+
+}
+.Custom {
+    background-color: gold;
+}
+.SideMenu {
+    background-color: rgb(12, 12, 12);
+    display: flex;
+}
+
+.bottomMenu {
+    margin-top: auto;
+}
+.verticalMenu {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px; /* Adjust as needed */
+    padding: 8px;
+    gap: 5px;
+}

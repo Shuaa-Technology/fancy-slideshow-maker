@@ -1,0 +1,20 @@
+
+
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 7px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  color: white;
+  background-color: #1A1A1B;
+  border-radius: 5px;
+}
+
+
+
+.menuItem span {
+  font-size: .8rem;
+  margin-top: 6px;
+}
