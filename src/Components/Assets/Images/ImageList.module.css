@@ -1,0 +1,16 @@
+/* SlidesList.module.css */
+
+.imagesList {
+  height: 90vh;
+  
+  overflow-y: scroll;
+}
+
+.imagesContainer {
+  display: flex;
+  column-gap: 10px;
+
+  position: relative;
+  height: 2000px;
+  flex-direction: column;
+}
