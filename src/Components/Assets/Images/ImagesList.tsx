@@ -1,5 +1,5 @@
 import Image from "./Image/Image";
-import styles from "./ImageList.module.css";
+import styles from "./ImageList.module.scss";
 
 function ImageList() {
   const numberOfImages = 15; // You can change this to the number of images you want
