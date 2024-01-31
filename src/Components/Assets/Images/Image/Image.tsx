@@ -7,7 +7,7 @@ interface ImageProps {
 
 function Image({ path }: ImageProps) {
   return (
-    <div className={styles.imageItem} style={{ backgroundImage: "url(" + path + ")" }}></div>
+    <div className={styles.imageItem} style={{ backgroundImage: "url(" + path + ")", backgroundSize: "cover" }}></div>
   );
 }
 
