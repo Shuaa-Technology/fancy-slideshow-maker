@@ -1,14 +1,18 @@
-import Slide from "./Slide/Slide";
-import styles from "./SlidesList.module.css";
+import { useSelector } from 'react-redux';
+import Slide from './Slide/Slide';
+
+import styles from './SlidesList.module.css';
+import {selectSlides} from "../../../app/slices/slidesSlice";
 
 function SlidesList() {
-    const numberOfSlides = 10;
+    // Select slides from the Redux store
+    const slides = useSelector(selectSlides);
 
     return (
         <div className={styles.slidesList}>
             <div className={styles.slidesContainer}>
-                {Array.from({ length: numberOfSlides }, (_, index) => (
-                    <Slide key={index} order={index + 1} />
+                {slides.map((slide, index) => (
+                    <Slide key={slide.id}  slide={slide} />
                 ))}
             </div>
         </div>
