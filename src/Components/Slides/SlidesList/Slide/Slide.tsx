@@ -1,5 +1,5 @@
 import styles from "./Slide.module.css";
-import {SlideInterface} from "../../../../Core/models/slide/SlideInterface";
+import {SlideInterface} from "../../../../Core/Models/Slide/SlideInterface";
 
 interface SlideProps {
     slide: SlideInterface;
