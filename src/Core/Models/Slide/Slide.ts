@@ -2,16 +2,16 @@ import {SlideInterface} from "./SlideInterface";
 
 class Slide implements SlideInterface {
     id: string;
+    version: number = 0;
     title: string;
-    thumbnail: string;
-    version: number;
     description: string;
+    thumbnail: string;
 
-    constructor(id: string, title: string, thumbnail: string, version: number, description: string) {
+    
+    constructor(id: string, title: string, thumbnail: string,description: string) {
         this.id = id;
         this.title = title;
         this.thumbnail = thumbnail;
-        this.version = version;
         this.description = description;
     }
 

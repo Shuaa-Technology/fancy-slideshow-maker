@@ -1,7 +1,8 @@
 export interface SlideInterface {
     id: string;
-    title: string;
-    thumbnail?: string;
     version: number;
+    title: string;
     description: string;
+    thumbnail?: string;
+
 }

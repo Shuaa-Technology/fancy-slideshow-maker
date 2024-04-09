@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from '@reduxjs/toolkit';
-import Slide from "../../core/models/slide/slide";
+import Slide from "../../Core/models/slide/Slide";
 import {RootState} from "../store";
-import {SlideInterface} from "../../core/models/slide/slideInterface";
+import {SlideInterface} from "../../Core/models/slide/SlideInterface";
 
 
 //Dummy slides
