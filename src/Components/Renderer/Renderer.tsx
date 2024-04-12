@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from "./Renderer.module.css";
+import FancyRenderEngine from './Engines/FancyRenderEngine/FancyRenderEngine';
 
 function Renderer() {
     const [zoomLevel, setZoomLevel] = useState(80); // Initial zoom level, you can set it to any default value
@@ -9,13 +10,13 @@ function Renderer() {
         setZoomLevel(newZoomLevel);
     };
 
-    const RendererInnerStyle = {
-        transform: `scale(${zoomLevel / 100})`, // Adjust the zoom level dynamically
-    };
+
 
     return (
         <div className={styles.RendererContainer}>
-            <div className={styles.RendererInner} style={RendererInnerStyle}></div>
+
+             <FancyRenderEngine zoom={zoomLevel} />
+            
             <div className={styles.RendererControls}>
                 <div className={styles.RendererZoom}>
                     <input

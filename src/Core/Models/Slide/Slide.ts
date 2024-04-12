@@ -1,3 +1,4 @@
+import {  FancyElementInterface } from "../FancyElements/FancyElementInterface";
 import {SlideInterface} from "./SlideInterface";
 
 class Slide implements SlideInterface {
@@ -6,7 +7,7 @@ class Slide implements SlideInterface {
     title: string;
     description: string;
     thumbnail: string;
-
+    elements: FancyElementInterface[] = []; // Array of ElementInterface
     
     constructor(id: string, title: string, thumbnail: string,description: string) {
         this.id = id;
