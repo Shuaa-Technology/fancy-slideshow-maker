@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import styles from "./FancyRenderEngine.module.css";
-
+import { FancyElementInterface } from "../../../../Core/Models/FancyElements/FancyElementInterface";
+import FancyImageElement from "./Elements/FancyImageElement/FancyImageElement";
+import FancyElement from "../../../../Core/Models/FancyElements/FancyElement";
 
 interface RenderEngineProps {
-    //for now 
-    //@todo: will be a Core Model
-    zoom: number;
-  
+  //for now
+  //@todo: will be a Core Model
+  zoom: number;
+  elements: FancyElement[];
 }
 
-function FancyRenderEngine({ zoom }: RenderEngineProps) {
+function FancyRenderEngine({ zoom, elements = [] }: RenderEngineProps) {
   const [zoomLevel, setZoomLevel] = useState(80); // Initial zoom level, you can set it to any default value
 
   const handleZoomChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,13 +19,19 @@ function FancyRenderEngine({ zoom }: RenderEngineProps) {
     setZoomLevel(newZoomLevel);
   };
 
+
   const RendererInnerStyle = {
     transform: `scale(${zoom / 100})`, // Adjust the zoom level dynamically
-};
+  };
 
-
+  
   return (
-    <div className={styles.FancyRenderEngine} style={RendererInnerStyle}></div>
+    <div className={styles.FancyRenderEngine} style={RendererInnerStyle}>
+      {/* Map over the elements array and render each FancyElementComponent */}
+      {elements.map((element) => (
+        <FancyImageElement key={element.id}  image={element}/* element={element} */ />
+      ))}
+    </div>
   );
 }
 
