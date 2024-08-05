@@ -2,16 +2,16 @@ import FancyImageElement from "../../../../Components/Renderer/Engines/FancyRend
 import FancyElement from "../FancyElement";
 
 class FancySimpleImage extends FancyElement {
-  /* path: string; */
+  path?: string = ""; 
   constructor(
     id: string,
     name: string,
     thumbnail: string,
-    description: string
-   /*  ,path: string */
+    description: string,
+    path: string 
   ) {
     super(id, name, thumbnail, description);
-    /* this.path = path; */
+    this.path = path;
   }
 
   getComponent():string  {

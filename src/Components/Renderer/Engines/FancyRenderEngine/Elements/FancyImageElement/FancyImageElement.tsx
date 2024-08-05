@@ -4,13 +4,12 @@ import styles from "./FancyImageElement.module.css";
 import FancySimpleImage from "../../../../../../Core/Models/FancyElements/FancySimpleImage/FancySimpleImage";
 import FancyElement from "../../../../../../Core/Models/FancyElements/FancyElement";
 
-interface FancyImageProps {
-/*   image: FancySimpleImage; */
-  image: FancySimpleImage;
+interface FancyImageProps<T extends FancyElement> {
+  image: T;
 }
 
-function FancyImageElement({ image }: FancyImageProps) {
-  return <img className={styles.FancyImageElement} src={"https://source.unsplash.com/random/300×300?Cryptocurrency&"+image.id}></img>;
+function FancyImageElement({ image }: FancyImageProps<FancySimpleImage>) {
+  return <img className={styles.FancyImageElement} src={image.path}></img>;
 }
 
 export default FancyImageElement;

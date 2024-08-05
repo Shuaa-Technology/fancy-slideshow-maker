@@ -23,8 +23,8 @@ function Renderer() {
             i.toString(),
             `Element ${i}`,
             `thumbnail${i}.jpg`,
-            `Description ${i}`/* ,
-            "https://source.unsplash.com/random/300×300" */
+            `Description ${i}`,
+             `https://picsum.photos/200/300?random=${i}` 
           );
       
           // Assign random positions and dimensions
