@@ -1,22 +1,25 @@
 .slideItem {
-    display: flex;
-    align-items: center;
-    border-radius: 5px;
-    margin: 5px;
-    background-color: #353333;
-    height: 100%;
-    width: 160px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin: 5px;
+  background-color: #353333;
+  height: 100%;
+  width: 160px;
 }
 .slideItemContainer {
-    color: white;
-    display: flex;
-    align-items: flex-start;
+  color: white;
+  display: flex;
+  align-items: flex-start;
 }
 .slideNumber {
-    font-size: 24px;
-    margin-right: 10px;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 .slideContent {
-    flex: 1;
+  flex: 1;
+}
+.selected {
+  border: #246ad2 solid 2px;
 }

@@ -9,6 +9,12 @@ class Scene implements SceneInterface {
   constructor(id: string) {
     this.id = id;
   }
+
+  addElement(element: FancyElement): this {
+    this.elements.push(element);
+
+    return this;
+  }
 }
 
 export default Scene;

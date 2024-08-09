@@ -1,4 +1,5 @@
 import FancyElement from "../FancyElements/FancyElement";
+import { SceneInterface } from "./Scene/SceneInterface";
 
 export interface SlideInterface {
     id: string;
@@ -6,5 +7,5 @@ export interface SlideInterface {
     title: string;
     description: string;
     thumbnail?: string;
-    elements: FancyElement[]; 
+    scences: SceneInterface[]; 
 }

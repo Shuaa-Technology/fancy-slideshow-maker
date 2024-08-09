@@ -1,37 +1,50 @@
 import FancyElement from "../FancyElements/FancyElement";
-import {  FancyElementInterface } from "../FancyElements/FancyElementInterface";
-import {SlideInterface} from "./SlideInterface";
+import { FancyElementInterface } from "../FancyElements/FancyElementInterface";
+import { SceneInterface } from "./Scene/SceneInterface";
+import { SlideInterface } from "./SlideInterface";
 
 class Slide implements SlideInterface {
-    id: string;
-    version: number = 0;
-    title: string;
-    description: string;
-    thumbnail: string;
-    elements: FancyElement[] = []; // Array of ElementInterface
-    
-    constructor(id: string, title: string, thumbnail: string,description: string) {
-        this.id = id;
-        this.title = title;
-        this.thumbnail = thumbnail;
-        this.description = description;
-    }
+  id: string;
+  version: number = 0;
+  title: string;
+  description: string;
+  thumbnail: string;
+  scences: SceneInterface[] = []; // Array of ElementInterface
 
-    getTitle(): string {
-        return this.title;
-    }
+  constructor(
+    id: string,
+    title: string,
+    thumbnail: string,
+    description: string
+  ) {
+    this.id = id;
+    this.title = title;
+    this.thumbnail = thumbnail;
+    this.description = description;
+  }
 
-    setTitle(newTitle: string): void {
-        this.title = newTitle;
-    }
+  getTitle(): string {
+    return this.title;
+  }
 
-    getThumbnail(): string {
-        return this.thumbnail;
-    }
+  setTitle(newTitle: string): void {
+    this.title = newTitle;
+  }
 
-    setThumbnail(newThumbnail: string): void {
-        this.thumbnail = newThumbnail;
-    }
+  getThumbnail(): string {
+    return this.thumbnail;
+  }
+
+  setThumbnail(newThumbnail: string): void {
+    this.thumbnail = newThumbnail;
+  }
+
+
+  getScene(): SceneInterface | null  {
+    return  this.scences[0] ?? null;
+  }
+
+
 }
 
 export default Slide;
