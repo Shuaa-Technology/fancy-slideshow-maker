@@ -45,6 +45,14 @@ class Slide implements SlideInterface {
   }
 
 
+
+  setScenes(scences: SceneInterface[]): this {
+    this.scences = scences;
+
+    return this;
+  }
+
+
 }
 
 export default Slide;

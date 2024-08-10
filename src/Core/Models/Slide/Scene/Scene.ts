@@ -15,6 +15,16 @@ class Scene implements SceneInterface {
 
     return this;
   }
+
+  getElements(): FancyElement[] {
+    return this.elements;
+  }
+
+  setElements(elements: FancyElement[]): this {
+    this.elements = elements;
+
+    return this;
+  }
 }
 
 export default Scene;

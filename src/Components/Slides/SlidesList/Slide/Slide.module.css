@@ -6,6 +6,7 @@
   background-color: #353333;
   height: 100%;
   width: 160px;
+  cursor:pointer;
 }
 .slideItemContainer {
   color: white;
