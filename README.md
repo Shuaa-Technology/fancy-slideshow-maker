@@ -1,6 +1,3 @@
-Certainly! Here's how you can structure the README to separate technical features (related to code and technology) from the final user-facing features:
-
----
 
 # Fancy Slideshow Maker
 
