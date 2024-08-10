@@ -96,6 +96,3 @@ For any inquiries, please reach out at
 [chehata.b8@gmail.com](mailto:chehata.b8@gmail.com).
 [alaeddinbs@gmail.com](mailto:alaeddinbs@gmail.com)
 
----
-
-This structure clearly separates the user-facing features from the technical aspects, making it easier for different audiences (users vs. developers) to find the information they need.
