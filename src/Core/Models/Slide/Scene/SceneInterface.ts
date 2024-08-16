@@ -5,6 +5,6 @@ export interface SceneInterface {
   elements: FancyElement[];
 
 
-
+  addElement(element: FancyElement): this;
   getElements(): FancyElement[];
 }

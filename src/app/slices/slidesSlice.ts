@@ -35,7 +35,9 @@ const generateDummyElements = (seed: number): FancyElement[] => {
 // Now create the DUMMY_SLIDES array using the Slide class
 const DUMMY_SLIDES: Slide[] = Array.from({ length: 10 }, (_, index) => {
   const scences = [
-    new Scene("RANDOM SCENE").setElements(generateDummyElements(index)),
+    new Scene("RANDOM SCENE").setElements(
+      /* generateDummyElements(index) */ []
+    ),
   ];
 
   return new Slide(
@@ -68,9 +70,29 @@ export const slidesSlice = createSlice({
         selectedSlide: action.payload,
       });
     },
+
+    addImage: (state, action: PayloadAction<string>) => {
+      let selectedSlide = state.selectedSlide;
+
+      if (selectedSlide) {
+        let elem = new FancySimpleImage(
+          "ID",
+          `Element`,
+          `thumbnail.jpg`,
+          `Description`,
+          action.payload
+        );
+        selectedSlide.getScene()!.addElement(elem);
+        // Assuming selectedSlide has a method or property to add elements
+       
+        Object.assign(state, {
+          selectedSlide: selectedSlide,
+        });
+      }
+    },
   },
 });
-export const { selectSlide } = slidesSlice.actions;
+export const { selectSlide, addImage } = slidesSlice.actions;
 // State selectors
 export const getSelectedSlide = (state: RootState) =>
   state.slides.selectedSlide;

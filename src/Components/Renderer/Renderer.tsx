@@ -21,32 +21,6 @@ function Renderer({ slides, selectedSlide }: SlidesListProps) {
     setZoomLevel(newZoomLevel);
   };
 
-  const generateDummyElements = (): FancyElement[] => {
-    const dummyElements: FancyElement[] = [];
-
-    // Create and push dummy elements into the array with positions and dimensions
-    for (let i = 1; i <= 6; i++) {
-      const element = new FancySimpleImage(
-        i.toString(),
-        `Element ${i}`,
-        `thumbnail${i}.jpg`,
-        `Description ${i}`,
-        `https://picsum.photos/200/300?random=${i}`
-      );
-
-      // Assign random positions and dimensions
-      element.position = { x: Math.random() * 100, y: Math.random() * 100 };
-      element.dimensions = {
-        height: Math.random() * 200,
-        width: Math.random() * 200,
-      };
-
-      dummyElements.push(element);
-    }
-
-    return dummyElements;
-  };
-
   return (
     <div className={styles.RendererContainer}>
       {/* Test current rendrer according to config */}
@@ -56,7 +30,7 @@ function Renderer({ slides, selectedSlide }: SlidesListProps) {
         <div className={styles.RendererZoom}>
           <input
             type="range"
-            min={0}
+            min={30}
             max={100}
             value={zoomLevel}
             onChange={handleZoomChange}

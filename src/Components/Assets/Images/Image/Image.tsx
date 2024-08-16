@@ -3,11 +3,17 @@ import styles from "./Image.module.scss";
 
 interface ImageProps {
   path: string;
+  onImageClick: (path: string) => void;
 }
 
-function Image({ path }: ImageProps) {
+function Image({ path, onImageClick}: ImageProps) {
+
+  const handleOnClick = () => {
+    onImageClick(path);
+  };
+
   return (
-    <div className={styles.imageItem} style={{ backgroundImage: "url(" + path + ")", backgroundSize: "cover",    backgroundPosition: "center" }}></div>
+    <div onClick={handleOnClick}  className={styles.imageItem} style={{ backgroundImage: "url(" + path + ")", backgroundSize: "cover",    backgroundPosition: "center" }}></div>
   );
 }
 
