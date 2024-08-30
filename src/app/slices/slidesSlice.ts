@@ -5,6 +5,7 @@ import { SlideInterface } from "../../Core/Models/Slide/SlideInterface";
 import FancySimpleImage from "../../Core/Models/FancyElements/FancySimpleImage/FancySimpleImage";
 import Scene from "../../Core/Models/Slide/Scene/Scene";
 import FancyElement from "../../Core/Models/FancyElements/FancyElement";
+import { cloneDeep } from "lodash";
 
 //Dummy slides
 const generateDummyElements = (seed: number): FancyElement[] => {
@@ -72,9 +73,9 @@ export const slidesSlice = createSlice({
     },
 
     addImage: (state, action: PayloadAction<string>) => {
-      let selectedSlide = state.selectedSlide;
+      let updatedSlide = state.selectedSlide;
 
-      if (selectedSlide) {
+      if (updatedSlide) {
         let elem = new FancySimpleImage(
           "ID",
           `Element`,
@@ -82,12 +83,20 @@ export const slidesSlice = createSlice({
           `Description`,
           action.payload
         );
-        selectedSlide.getScene()!.addElement(elem);
-        // Assuming selectedSlide has a method or property to add elements
-       
-        Object.assign(state, {
-          selectedSlide: selectedSlide,
-        });
+
+        if (updatedSlide) {
+          let updatedSlideClone = cloneDeep(updatedSlide);
+          let updatedScene = updatedSlideClone.getScene();
+          if (updatedScene) {
+            updatedScene!.addElement(elem);
+            updatedSlide.setScenes([]);
+            updatedSlide.setScene(updatedScene);
+          }
+
+          Object.assign(state, {
+            selectedSlide: updatedSlideClone,
+          });
+        }
       }
     },
   },

@@ -5,7 +5,10 @@ import slidesSlice from "./slices/slidesSlice";
 export const store = configureStore({
     reducer: {
         slides: slidesSlice
-    },
+    }, middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+          serializableCheck: false,
+        }),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

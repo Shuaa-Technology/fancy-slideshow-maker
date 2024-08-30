@@ -10,4 +10,7 @@ export interface SlideInterface {
   scences: SceneInterface[];
 
   getScene(): SceneInterface | null;
+  setScenes(scenes : SceneInterface[]):this
+  setScene(scene : SceneInterface) : this;
+
 }

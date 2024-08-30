@@ -44,7 +44,13 @@ class Slide implements SlideInterface {
     return  this.scences[0] ?? null;
   }
 
+ setScene(scene : SceneInterface) : this{
+     this.scences[0] = scene;
+     return this;
+  }
 
+
+  
 
   setScenes(scences: SceneInterface[]): this {
     this.scences = scences;
