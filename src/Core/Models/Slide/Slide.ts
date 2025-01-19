@@ -41,7 +41,7 @@ class Slide implements SlideInterface {
 
 
   getScene(): SceneInterface | null  {
-    return  this.scences[0] ?? null;
+    return  this.scences[0] ?? null; //will get the first as default scene
   }
 
  setScene(scene : SceneInterface) : this{

@@ -28,8 +28,8 @@ function FancyRenderEngine({ zoom, elements = [] }: RenderEngineProps) {
   return (
     <div className={styles.FancyRenderEngine} style={RendererInnerStyle}>
       {/* Map over the elements array and render each FancyElementComponent */}
-      {elements.map((element) => (
-        <FancyImageElement key={element.id}  image={element}/* element={element} */ />
+      {elements.map((img) => (
+        <FancyImageElement key={img.id}  image={img}/* element={element} */ />
       ))}
     </div>
   );
