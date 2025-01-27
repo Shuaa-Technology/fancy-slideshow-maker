@@ -15,4 +15,4 @@ function MenuItem({ icon, text } :  MenuItemProps) {
     );
 }
 
-export default MenuItem;
+export default MenuItem; 

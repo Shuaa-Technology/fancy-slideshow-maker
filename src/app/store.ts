@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import slidesSlice from "./slices/slidesSlice";
+import projectsSlice from './slices/projectsSlice';
 
 
 export const store = configureStore({
-    reducer: {
-        slides: slidesSlice
-    }, middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({
-          serializableCheck: false,
-        }),
+  reducer: {
+    projects: projectsSlice
+    ,slides: slidesSlice
+  }, middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
