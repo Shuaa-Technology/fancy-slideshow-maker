@@ -4,21 +4,17 @@ import styles from "./FancyImageElement.module.css";
 import FancySimpleImage from "../../../../../../Core/Models/FancyElements/FancySimpleImage/FancySimpleImage";
 import FancyElement from "../../../../../../Core/Models/FancyElements/FancyElement";
 import { Rnd } from "react-rnd";
+import { FancyElementInterface } from "../../../../../../Core/Models/FancyElements/FancyElementInterface";
 
 interface FancyImageProps<T extends FancyElement> {
-  image: T;
+  image: FancyElementInterface;
+  onChangePosition: (element: FancyElementInterface, position: any) => void;
 }
 
 function FancyImageElement({ image }: FancyImageProps<FancySimpleImage>) {
-  const [position, setPosition] = useState({ x: 0, y: 0 }); // Initialize state for position
+  const [position, setPosition] = useState({ x: image.position.x, y: image.position.y }); // Initialize state for position
   const [isDragging, setIsDragging] = useState<any>(false);
 
-  const handleDragStop = (e: any, data: any) => {
-    setPosition({
-      x: data.x,
-      y: data.y,
-    });
-  };
 
   const eventControl = (event: { type: any; }, info: any) => {
 
@@ -34,19 +30,28 @@ function FancyImageElement({ image }: FancyImageProps<FancySimpleImage>) {
     }
   }
 
+  const handleOnChangePosition = (position: any) => {
+    setPosition({
+      x: position.x,
+      y: position.y,
+    });
+  };
+
   return (
     <Rnd
       id={image.id}
 
       position={{ x: position.x, y: position.y }} // Use the state here for position
-      onDragStop={handleDragStop} // Update state when drag is stopped
-      onClick={() => !isDragging }
-      onDrag={eventControl}
-      onStop={eventControl}
+      /*       onDragStop={handleDragStop}  */// Update state when drag is stopped
+      onClick={() => !isDragging}
+      onDrag={handleOnChangePosition}
+      onDragStop={handleOnChangePosition}
+      //  onStop={eventControl}
       className={styles.wrapper}
       lockAspectRatio={false}
       minWidth={50}
       minHeight={50}
+      bounds=".dragContainer"
     >
       <img className={styles.FancyImageElement} src={image.path} />
     </Rnd>

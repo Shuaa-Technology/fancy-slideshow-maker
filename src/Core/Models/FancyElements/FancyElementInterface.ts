@@ -5,6 +5,7 @@ export interface FancyElementInterface {
   name: string;
   description: string;
   thumbnail?: string;
+  path?: string 
   position: {
     x: number;
     y: number;
@@ -14,5 +15,7 @@ export interface FancyElementInterface {
     width: number;
   };
 
+  getPosition(): { x: number; y: number };
 
+  setPosition(x: number, y: number):this;
 }

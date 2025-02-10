@@ -14,7 +14,7 @@ interface SlidesListProps {
 
 function Renderer({ slides, selectedSlide }: SlidesListProps) {
   console.log((selectedSlide.getScene()!).getElements())
-  const [zoomLevel, setZoomLevel] = useState(80); // Initial zoom level, you can set it to any default value
+  const [zoomLevel, setZoomLevel] = useState(100); // Initial zoom level, you can set it to any default value
 
   const handleZoomChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newZoomLevel = parseInt(event.target.value, 10);

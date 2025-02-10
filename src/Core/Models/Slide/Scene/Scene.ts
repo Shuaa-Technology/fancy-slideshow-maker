@@ -4,23 +4,33 @@ import { SceneInterface } from "./SceneInterface";
 
 class Scene implements SceneInterface {
   id: string;
-  elements: FancyElement[] = []; // Array of ElementInterface
+  elements: FancyElementInterface[] = []; // Array of ElementInterface
 
   constructor(id: string) {
     this.id = id;
   }
 
-  addElement(element: FancyElement): this {
+  addElement(element: FancyElementInterface): this {
     this.elements.push(element);
 
     return this;
   }
 
-  getElements(): FancyElement[] {
+  updateElement(updatedElement: FancyElementInterface): this {
+    const index = this.elements.findIndex(element => element.id === updatedElement.id);
+    if (index !== -1) {
+      this.elements[index] = updatedElement;
+    } else {
+      console.warn(`Element with id ${updatedElement.id} not found.`);
+    }
+
+    return this;
+  }
+  getElements(): FancyElementInterface[] {
     return this.elements;
   }
 
-  setElements(elements: FancyElement[]): this {
+  setElements(elements: FancyElementInterface[]): this {
     this.elements = elements;
 
     return this;

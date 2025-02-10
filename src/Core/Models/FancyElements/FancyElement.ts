@@ -28,8 +28,10 @@ abstract class FancyElement implements FancyElementInterface {
     return this.position;
   }
 
-   setPosition(newPosition: { x: number; y: number }) {
-    this.position = newPosition;
+  setPosition(x: number, y: number):this{
+    this.position.x = x;
+    this.position.y = y;
+    return this
   }
 
    getDimensions(): { height: number; width: number } {

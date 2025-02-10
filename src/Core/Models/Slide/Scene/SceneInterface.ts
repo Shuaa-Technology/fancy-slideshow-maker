@@ -1,10 +1,12 @@
 import FancyElement from "../../FancyElements/FancyElement";
+import { FancyElementInterface } from "../../FancyElements/FancyElementInterface";
 
 export interface SceneInterface {
   id: string;
-  elements: FancyElement[];
+  elements: FancyElementInterface[];
 
 
-  addElement(element: FancyElement): this;
-  getElements(): FancyElement[];
+  addElement(element: FancyElementInterface): this;
+  updateElement(element: FancyElementInterface): this;
+  getElements(): FancyElementInterface[];
 }
