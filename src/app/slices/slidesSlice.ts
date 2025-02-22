@@ -7,6 +7,7 @@ import Scene from "../../Core/Models/Slide/Scene/Scene";
 import FancyElement from "../../Core/Models/FancyElements/FancyElement";
 import { cloneDeep } from "lodash";
 import { FancyElementInterface } from "../../Core/Models/FancyElements/FancyElementInterface";
+import { randomBytes } from "crypto";
 
 
 // Now create the DUMMY_SLIDES array using the Slide class
@@ -49,32 +50,21 @@ export const slidesSlice = createSlice({
     },
 
     updateViewportElement: (state, action: PayloadAction<FancyElementInterface>) => {
-      let updatedSlide = state.selectedSlide;
-      if (updatedSlide) {
-        if (updatedSlide) {
-          let updatedSlideClone = cloneDeep(state.selectedSlide);
-          let updatedScene = updatedSlideClone.getScene();
-          if (updatedScene) {
-            updatedScene!.updateElement(action.payload);
-            updatedSlide.setScene(updatedScene);
-          }
-
-          Object.assign(state, {
-            selectedSlide: updatedSlideClone,
-          });
+      if (state.selectedSlide) {
+        let updatedScene = state.selectedSlide.getScene();
+        if (updatedScene) {
+          updatedScene.updateElement(action.payload);
+          console.log(action.payload)
+          state.selectedSlide.setScene(updatedScene); // Directly modify state
         }
-
-      } else {
-        console.warn("No selected slide to update.");
       }
-
     },
     addImage: (state, action: PayloadAction<string>) => {
       let updatedSlide = state.selectedSlide;
 
       if (updatedSlide) {
         let elem = new FancySimpleImage(
-          "ID",
+          (Math.random() + 1).toString(36).substring(7),
           `Element`,
           `thumbnail.jpg`,
           `Description`,
