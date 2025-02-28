@@ -8,54 +8,54 @@ import { FancyElementInterface } from "../../../../../../Core/Models/FancyElemen
 
 interface FancyImageProps<T extends FancyElement> {
   image: FancyElementInterface;
-  onChangePosition: (element: FancyElementInterface, position: any) => void;
+  onChangePosition: (element: FancyElementInterface, position: { x: number; y: number }) => void;
 }
 
-function FancyImageElement({ image }: FancyImageProps<FancySimpleImage>) {
-  const [position, setPosition] = useState({ x: image.position.x, y: image.position.y }); // Initialize state for position
-  const [isDragging, setIsDragging] = useState<any>(false);
-
-
-  const eventControl = (event: { type: any; }, info: any) => {
-
-    if (event.type === 'mousemove' || event.type === 'touchmove') {
-      setIsDragging(true)
+const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image, onChangePosition }) => {
+  const [position, setPosition] = useState({ x: image.position.x, y: image.position.y });
+  const [isDragging, setIsDragging] = useState(false);
+   
+  // Detects dragging events
+  const eventControl = (event: { type: string }) => {
+    if (event.type === "mousemove" || event.type === "touchmove") {
+      setIsDragging(true);
     }
 
-    if (event.type === 'mouseup' || event.type === 'touchend') {
+    if (event.type === "mouseup" || event.type === "touchend") {
       setTimeout(() => {
         setIsDragging(false);
-      }, 100);
-
+      }, 50);
     }
-  }
+  };
 
-  const handleOnChangePosition = (position: any) => {
-    setPosition({
-      x: position.x,
-      y: position.y,
-    });
+  // Updates position only on drag stop
+  const handleOnChangePosition = (e: any, data: { x: number; y: number }) => {
+    setPosition({ x: data.x, y: data.y });
+      image = image.setPosition(data.x, data.y)
+      console.log(data)
+       onChangePosition(image, { x: data.x, y: data.y });
   };
 
   return (
     <Rnd
+      key={image.id}
       id={image.id}
-
-      position={{ x: position.x, y: position.y }} // Use the state here for position
-      /*       onDragStop={handleDragStop}  */// Update state when drag is stopped
-      onClick={() => !isDragging}
-      onDrag={handleOnChangePosition}
-      onDragStop={handleOnChangePosition}
-      //  onStop={eventControl}
-      className={styles.wrapper}
+      position={position}
+      onDrag={eventControl} // Track dragging status
+      onDragStop={handleOnChangePosition} // Update state only when dragging stops
+      onClick={(e:any) => {
+        if (!isDragging) {
+          e.stopPropagation();
+        }
+      }}
       lockAspectRatio={false}
       minWidth={50}
       minHeight={50}
       bounds=".dragContainer"
     >
-      <img className={styles.FancyImageElement} src={image.path} />
+      <img className={styles.FancyImageElement} src={image.path} alt="Fancy Element" />
     </Rnd>
   );
-}
+};
 
 export default FancyImageElement;
