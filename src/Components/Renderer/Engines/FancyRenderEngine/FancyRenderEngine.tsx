@@ -1,47 +1,41 @@
 import React, { useState } from "react";
 import styles from "./FancyRenderEngine.module.css";
-import { FancyElementInterface } from "../../../../Core/Models/FancyElements/FancyElementInterface";
 import FancyImageElement from "./Elements/FancyImageElement/FancyImageElement";
-import FancyElement from "../../../../Core/Models/FancyElements/FancyElement";
+import { FancyElementInterface } from "../../../../Core/Models/FancyElements/FancyElementInterface";
 import { useAppDispatch } from "../../../../app/hooks";
 import { updateViewportElement } from "../../../../app/slices/slidesSlice";
 
 interface RenderEngineProps {
-  //for now
-  //@todo: will be a Core Model
   zoom: number;
   elements: FancyElementInterface[];
-
 }
 
 function FancyRenderEngine({ zoom, elements = [] }: RenderEngineProps) {
   const dispatch = useAppDispatch();
 
-  const [zoomLevel, setZoomLevel] = useState(100); // Initial zoom level, you can set it to any default value
- 
-  const handleZoomChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newZoomLevel = parseInt(event.target.value, 10);
-    setZoomLevel(newZoomLevel);
+  const handleNodePositionChanges = (element: FancyElementInterface, position: { x: number; y: number }) => {
+    const updatedElement = element.setPosition(position.x, position.y);
+    dispatch(updateViewportElement(updatedElement));
   };
 
-
-  const RendererInnerStyle = {
-    transform: `scale(${zoom / 100})`, // Adjust the zoom level dynamically
+  const rendererInnerStyle = {
+    transform: `scale(${zoom / 100})`,
+    transformOrigin: "top left", // Ensure scaling starts from top-left to avoid offset issues
+    width: "100%",
+    height: "100%",
   };
 
-
-  const handleNodePositionChanges = (element: FancyElementInterface, position: any) => {
-    element.setPosition(position.x, position.y);
-    dispatch(updateViewportElement(element));
-  };
-
-  
   return (
-    <div className={"dragContainer " + styles.FancyRenderEngine} style={RendererInnerStyle}>
-      {/* Map over the elements array and render each FancyElementComponent */}
-      {elements.map((img) => (
-        <FancyImageElement key={img.id}  image={img}    onChangePosition={handleNodePositionChanges}/* element={element} */ />
-      ))}
+    <div className={`dragContainer ${styles.FancyRenderEngine}`} style={{ position: "relative" }}>
+      <div style={rendererInnerStyle}>
+        {elements.map((img) => (
+          <FancyImageElement
+            key={img.id}
+            image={img}
+            onChangePosition={handleNodePositionChanges}
+          />
+        ))}
+      </div>
     </div>
   );
 }
