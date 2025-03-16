@@ -1,4 +1,11 @@
 .FancyRenderEngine {
     width: 100%;
+    height: 100%; /* Or a specific height like 600px */
+    overflow: hidden; /* Prevent overflow issues with scaling */
+  }
+  
+  .dragContainer {
+    position: relative; /* Required for Rnd bounds */
+    width: 100%;
     height: 100%;
-}
+  }

@@ -1,9 +1,9 @@
 .FancyImageElement {
     width: 100%;
     height: 100%;
-  
-
-}
+    object-fit: contain; /* Ensure image fits within Rnd */
+    pointer-events: none; /* Prevent image from intercepting drag events */
+  }
 
 .wrapper {
     cursor: pointer;
