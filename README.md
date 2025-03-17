@@ -19,7 +19,7 @@
 ### 🛠️ Technical Architecture
 
 - **⚛️ React & TypeScript** - Type-safe development ensuring robust code quality
-- **🔄 Redux Toolkit & Immer** - Simplified state management with immutable updates
+- **🔄 Redux Toolkit** - Simplified state management with immutable updates
 - **📦 Component-Based Design** - Modular architecture for maximum code reusability
 - **🖱️ Advanced Drag-and-Drop** - Powered by `react-dnd` for pixel-perfect positioning
 - **📊 CSS Grid & Flexbox** - Sophisticated layouts that adapt to any screen size
