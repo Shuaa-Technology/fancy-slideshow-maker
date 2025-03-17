@@ -2,8 +2,9 @@ import { useAppDispatch } from "../../../app/hooks";
 import Image from "./Image/Image";
 import styles from "./ImageList.module.scss";
 import {
-  addImage
+  addViewportElement
 } from "../../../app/slices/slidesSlice";
+import { ElementFactory } from "../../../Core/Models/FancyElements/ElementFactory";
 
 function ImageList() {
   const numberOfImages = 50; // You can change this to the number of images you want
@@ -16,7 +17,9 @@ function ImageList() {
   const dispatch = useAppDispatch();
 
   const handleAddImage = (path: string) => {
-    dispatch(addImage(path));
+     //add data here
+    const elem = ElementFactory.createElement("image",{ url: path, name: "My Image" });
+    dispatch(addViewportElement(elem));
   };
 
 

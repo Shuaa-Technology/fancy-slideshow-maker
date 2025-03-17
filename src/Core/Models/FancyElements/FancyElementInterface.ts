@@ -17,5 +17,5 @@ export interface FancyElementInterface {
 
   getPosition(): { x: number; y: number };
 
-  setPosition(x: number, y: number):this;
+  setPosition(x: number, y: number):FancyElementInterface;
 }

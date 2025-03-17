@@ -28,11 +28,16 @@ abstract class FancyElement implements FancyElementInterface {
     return this.position;
   }
 
-  setPosition(x: number, y: number): this {
-    const newImage = Object.assign(Object.create(Object.getPrototypeOf(this)), this);
-    newImage.position = { x, y };
-    return newImage;
+  clone(): this {
+    return Object.assign(Object.create(Object.getPrototypeOf(this)), this);
   }
+
+  setPosition(x: number, y: number): FancyElementInterface {
+    const newInstance = this.clone();
+    newInstance.position = { x, y };
+    return newInstance;
+  }
+
 
    getDimensions(): { height: number; width: number } {
     return this.dimensions;

@@ -30,10 +30,12 @@ const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image,
 
   // Updates position only on drag stop
   const handleOnChangePosition = (e: any, data: { x: number; y: number }) => {
-    setPosition({ x: data.x, y: data.y });
-      image = image.setPosition(data.x, data.y)
-      console.log(data)
-       onChangePosition(image, { x: data.x, y: data.y });
+      setPosition({ x: data.x, y: data.y });
+      const updatedImage: FancyElementInterface = {
+        ...image,
+        position: { x: data.x, y: data.y },
+      };
+      onChangePosition(updatedImage, { x: data.x, y: data.y });
   };
 
   return (
@@ -41,8 +43,8 @@ const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image,
       key={image.id}
       id={image.id}
       position={position}
-      onDrag={eventControl} // Track dragging status
-      onDragStop={handleOnChangePosition} // Update state only when dragging stops
+      onDrag={eventControl}
+      onDragStop={handleOnChangePosition} 
       onClick={(e:any) => {
         if (!isDragging) {
           e.stopPropagation();

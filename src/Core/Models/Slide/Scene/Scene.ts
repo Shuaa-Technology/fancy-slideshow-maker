@@ -35,6 +35,12 @@ class Scene implements SceneInterface {
 
     return this;
   }
+
+  clone(): Scene {
+    const newScene = new Scene(this.id);
+    newScene.setElements([...this.elements]); //shallow copy of elements
+    return newScene;
+  }
 }
 
 export default Scene;

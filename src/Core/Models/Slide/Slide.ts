@@ -40,17 +40,17 @@ class Slide implements SlideInterface {
   }
 
 
-  getScene(): SceneInterface | null  {
-    return  this.scences[0] ?? null; //will get the first as default scene
+  getScene(): SceneInterface | null {
+    return this.scences[0] ?? null; //will get the first as default scene
   }
 
- setScene(scene : SceneInterface) : this{
-     this.scences[0] = scene;
-     return this;
+  setScene(scene: SceneInterface): this {
+    this.scences[0] = scene;
+    return this;
   }
 
 
-  
+
 
   setScenes(scences: SceneInterface[]): this {
     this.scences = scences;
@@ -58,7 +58,11 @@ class Slide implements SlideInterface {
     return this;
   }
 
-
+  clone(): Slide {
+    const newSlide = new Slide(this.id, this.title, this.thumbnail, this.description);
+    newSlide.setScenes(this.scences.map(scene => ({ ...scene }))); 
+    return newSlide;
+  }
 }
 
 export default Slide;

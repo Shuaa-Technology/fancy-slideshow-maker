@@ -14,8 +14,7 @@ function FancyRenderEngine({ zoom, elements = [] }: RenderEngineProps) {
   const dispatch = useAppDispatch();
 
   const handleNodePositionChanges = (element: FancyElementInterface, position: { x: number; y: number }) => {
-    const updatedElement = element.setPosition(position.x, position.y);
-    dispatch(updateViewportElement(updatedElement));
+    dispatch(updateViewportElement(element));
   };
 
   const rendererInnerStyle = {
