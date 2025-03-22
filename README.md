@@ -1,6 +1,6 @@
-# 🎨 Fancy Slideshow Maker(Fancy Slider)
+# 🎨 Fancy Slider
 
-**Fancy Slideshow Maker** (aka Fancy Slider) is a cutting-edge presentation tool that transforms how you create, organize, and deliver captivating slideshows. Built with React and TypeScript, this web application combines intuitive design with powerful features to help you craft presentations that leave a lasting impression.
+**Fancy Slider** is a cutting-edge presentation tool that transforms how you create, organize, and deliver captivating slideshows. Built with React and TypeScript, this web application combines intuitive design with powerful features to help you craft presentations that leave a lasting impression.
 
 ![Status: In Active Development](https://img.shields.io/badge/Status-In%20Development-yellow)
 
