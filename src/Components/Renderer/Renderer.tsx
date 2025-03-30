@@ -23,24 +23,31 @@ function Renderer({ slides, selectedSlide }: SlidesListProps) {
   };
 
   return (
-    <div className={styles.RendererContainer}>
-      {/* Test current rendrer according to config */}
-      <FancyRenderEngine zoom={zoomLevel} elements={(selectedSlide.getScene()!).getElements()} />
+      <div className={}>
+                <span>
+        {selectedSlide.title}
+      </span>
+          <div className={styles.RendererContainer}>
+              {/* Test current rendrer according to config */}
 
-      <div className={styles.RendererControls}>
-        <div className={styles.RendererZoom}>
-          <input
-            type="range"
-            min={30}
-            max={100}
-            value={zoomLevel}
-            onChange={handleZoomChange}
-            className={styles.CustomRange} // Add a custom class for styling
-          />
-          <span>{zoomLevel}%</span> {/* Display the current zoom level */}
-        </div>
+              <FancyRenderEngine zoom={zoomLevel} elements={(selectedSlide.getScene()!).getElements()}/>
+
+              <div className={styles.RendererControls}>
+                  <div className={styles.RendererZoom}>
+                      <input
+                          type="range"
+                          min={30}
+                          max={100}
+                          value={zoomLevel}
+                          onChange={handleZoomChange}
+                          className={styles.CustomRange} // Add a custom class for styling
+                      />
+                      <span>{zoomLevel}%</span> {/* Display the current zoom level */}
+                  </div>
+              </div>
+          </div>
+
       </div>
-    </div>
   );
 }
 

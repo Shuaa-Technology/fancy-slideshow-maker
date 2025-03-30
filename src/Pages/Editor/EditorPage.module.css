@@ -1,9 +1,10 @@
 .EditorPage {
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
 .MainLayout {
     display: flex;
     flex-grow: 1;
+    height: calc(100% - 60px);
 }

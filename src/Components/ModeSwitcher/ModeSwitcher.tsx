@@ -7,7 +7,7 @@ import style from "./ModeSwitcher.module.css";
 interface Mode {
     id: number;
     name: string;
-    icon: JSX.Element;
+    icon: React.ReactNode;
 }
 
 const modes: Mode[] = [

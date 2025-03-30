@@ -9,6 +9,7 @@ function TopMenu() {
 
           <div  className={style.TopMenuLeft}>
 
+              <img src="/fs_logo.png" alt="Fancy Slideshow Logo" className={style.logo}/>
           </div>
           <div className={style.TopMenuMiddle}>
                 <ModeSwitcher />

@@ -8,13 +8,15 @@
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
   color: white;
-  background-color: #1A1A1B;
-  border-radius: 5px;
+  background-color: black;
+  border-radius: 10px;
 }
 
 
 
 .menuItem span {
-  font-size: .8rem;
+  font-size: .7rem;
+  color: rgba(255, 255, 255, 0.7);
+
   margin-top: 6px;
 }

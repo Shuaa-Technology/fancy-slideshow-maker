@@ -1,15 +1,29 @@
-/* SlidesList.module.css */
-
+// ImageList.module.scss
 .imagesList {
+  padding: 10px;
+  background-color: #181A20;
+  border-radius: 10px;
   height: 90vh;
-  
-  overflow-y: scroll;
+  overflow: hidden;
+
 }
 
 .imagesContainer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Two columns with equal width */
-  gap: 10px; /* Column gap */
+  grid-template-columns: repeat(2, 1fr);
+  overflow-y: scroll;
+margin-top: 10px;
+  max-height: 100%;
+  gap: 10px;
   position: relative;
   padding: 8px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: white;
+  font-size: 16px;
 }

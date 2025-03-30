@@ -1,7 +1,7 @@
 .RendererContainer {
     width: 800px;
     height: 500px;
-    background-color: white;
+    background-color: #181A20;
     transition: transform 0.3s ease; /* Add a smooth transition for zoom effect */
 
 }

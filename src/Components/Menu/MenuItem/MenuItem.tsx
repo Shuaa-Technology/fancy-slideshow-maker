@@ -1,8 +1,8 @@
 import React from "react";
 import style from "./MenuItem.module.scss";
-
+import { IconType } from "react-icons"; // Import IconType from react-icons
 interface MenuItemProps {
-    icon: JSX.Element;
+    icon: React.ReactElement<IconType>; // Use ReactElement with IconType
     text: string;
 }
 

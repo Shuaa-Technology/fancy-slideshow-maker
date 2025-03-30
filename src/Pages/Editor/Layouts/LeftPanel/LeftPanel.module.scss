@@ -11,22 +11,21 @@
 }
 .tabList {
     list-style: none;
-    padding: 6px;
+    padding: 10px;
     margin: 0;
-    background-color: rgb(12, 12, 12);
+    background-color: #181A20;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 .LeftPanel {
-    background-color: #1A1A1B;
     display: flex;
     flex-direction: column;
     width: 25%;
-
 }
 .tabsPanel {
     color: white;
+    padding: 10px;
 
 }
 .Custom {
@@ -45,5 +44,5 @@
     flex-direction: column;
     margin-top: 20px; /* Adjust as needed */
     padding: 8px;
-    gap: 5px;
+    gap: 10px;
 }

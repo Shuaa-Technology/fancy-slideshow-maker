@@ -11,19 +11,3 @@
     overflow: auto;
     height: 100%;
 }
-::-webkit-scrollbar {
-    height: 10px;
-    background-color: #333; /* Background color of the scrollbar track */
-    width: 8px;
-}
-
-/* Scrollbar Thumb */
-::-webkit-scrollbar-thumb {
-    background-color: #555; /* Color of the scrollbar thumb */
-    border-radius: 5px; /* Rounded corners for the thumb */
-}
-
-/* Hovered Scrollbar Thumb */
-::-webkit-scrollbar-thumb:hover {
-    background-color: #777; /* Color of the scrollbar thumb on hover */
-}
