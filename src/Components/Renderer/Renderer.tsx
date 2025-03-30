@@ -23,10 +23,8 @@ function Renderer({ slides, selectedSlide }: SlidesListProps) {
   };
 
   return (
-      <div className={}>
-                <span>
-        {selectedSlide.title}
-      </span>
+      <div className="flex flex-col items-start">
+          <span className="text-gray-500 text-xs mb-2">{selectedSlide.title}</span>
           <div className={styles.RendererContainer}>
               {/* Test current rendrer according to config */}
 
@@ -46,7 +44,6 @@ function Renderer({ slides, selectedSlide }: SlidesListProps) {
                   </div>
               </div>
           </div>
-
       </div>
   );
 }

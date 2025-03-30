@@ -3,7 +3,7 @@
   align-items: center;
   border-radius: 5px;
   margin: 5px;
-  background-color: #353333;
+  background-color: white;
   height: 100%;
   width: 160px;
   cursor:pointer;
@@ -12,6 +12,7 @@
   color: white;
   display: flex;
   align-items: flex-start;
+  height: 100%;
 }
 .slideNumber {
   font-size: 24px;
@@ -20,7 +21,9 @@
 
 .slideContent {
   flex: 1;
+  color: #3b0493;
+  font-size: 14px;
 }
 .selected {
-  border: #246ad2 solid 2px;
+  border: #3b0493 solid 3px;
 }

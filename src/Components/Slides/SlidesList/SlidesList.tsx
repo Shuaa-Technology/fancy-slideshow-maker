@@ -26,12 +26,22 @@ function SlidesList({ slides, selectedSlide }: SlidesListProps) {
     <div className={styles.slidesList}>
       <div className={styles.slidesContainer}>
         {slides.map((slide, index) => (
-          <Slide
-            key={slide.id}
-            slide={slide}
-            state={{ selected: selectedSlide.id == slide.id }}
-            onSelectSlide={handleSelectSlide}
-          />
+            <div className="flex flex-col gap-2">
+
+              <div className="flex-1">
+                <Slide
+                    key={slide.id}
+                    slide={slide}
+                    state={{ selected: selectedSlide.id == slide.id }}
+                    onSelectSlide={handleSelectSlide}
+                />
+              </div>
+
+              <span className="text-gray-500 text-xs">
+                {slide.title}
+              </span>
+            </div>
+
         ))}
       </div>
     </div>

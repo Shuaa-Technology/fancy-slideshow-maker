@@ -49,7 +49,7 @@ body,
 
 }
 ::-webkit-scrollbar {
-  height: 10px;
+  height: 2px;
   background-color: #333; /* Background color of the scrollbar track */
   width: 2px;
 }

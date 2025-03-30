@@ -1,10 +1,15 @@
 .TopMenu {
     height: 60px;
-    background-color: #1E1E20;
+    background-color: #181A20;
     justify-content: space-between;
     display: flex;
     padding: .6rem 2rem;
     padding-left: 17px;
+}
+.TopMenuRight {
+    display: flex;
+    align-items: center;
+    gap: 11px;
 }
 .logo {
 

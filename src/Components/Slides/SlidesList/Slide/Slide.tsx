@@ -18,7 +18,7 @@ function Slide({ slide, state, onSelectSlide }: SlideProps) {
           styles.slideItem + "  " + (state.selected ? styles.selected : "")
         }
       >
-        <div className={styles.slideContent}>{slide.title}</div>
+        <div className={styles.slideContent}>{slide.id}</div>
       </div>
     </div>
   );

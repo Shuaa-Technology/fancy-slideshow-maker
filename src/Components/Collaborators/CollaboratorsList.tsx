@@ -7,9 +7,6 @@ function CollaboratorsList() {
     // Dummy data for collaborators
     const dummyCollaborators = [
         { firstname: "John", lastname: "Doe" },
-        { firstname: "Jane", lastname: "Smith" },
-        { firstname: "Alice", lastname: "Johnson" },
-        { firstname: "Bob", lastname: "Williams" },
     ];
 
     return (

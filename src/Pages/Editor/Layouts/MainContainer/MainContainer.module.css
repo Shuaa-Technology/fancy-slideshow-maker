@@ -1,5 +1,4 @@
 .MainContainer {
-    background-color: #121212;
     display: flex;
     flex: auto;
     flex-direction: column;
@@ -16,7 +15,6 @@
     flex: 80%;
 }
 .MainContainerFooter {
-    flex: 100px;
-    background-color: #080808;
-
+    flex: 150px;
+    padding: 10px;
 }
