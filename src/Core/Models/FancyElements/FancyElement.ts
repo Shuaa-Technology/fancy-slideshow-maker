@@ -12,6 +12,7 @@ abstract class FancyElement implements FancyElementInterface {
     width: 0,
   };
 
+
   constructor(
     id: string,
     name: string,

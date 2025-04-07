@@ -3,19 +3,26 @@ import styles from "./FancyRenderEngine.module.css";
 import FancyImageElement from "./Elements/FancyImageElement/FancyImageElement";
 import { FancyElementInterface } from "../../../../Core/Models/FancyElements/FancyElementInterface";
 import { useAppDispatch } from "../../../../app/hooks";
-import { updateViewportElement } from "../../../../app/slices/slidesSlice";
+import { selectViewportElement, updateViewportElement } from "../../../../app/slices/slidesSlice";
 
 interface RenderEngineProps {
   zoom: number;
+  selectedElement: FancyElementInterface | null;
   elements: FancyElementInterface[];
 }
 
-function FancyRenderEngine({ zoom, elements = [] }: RenderEngineProps) {
+function FancyRenderEngine({ zoom, elements = [], selectedElement = null }: RenderEngineProps) {
   const dispatch = useAppDispatch();
+
+  const handleNodeSelect = (element: FancyElementInterface) => {
+    console.log(element)
+    dispatch(selectViewportElement(element));
+  };
 
   const handleNodePositionChanges = (element: FancyElementInterface, position: { x: number; y: number }) => {
     dispatch(updateViewportElement(element));
   };
+
 
   const rendererInnerStyle = {
     transform: `scale(${zoom / 100})`,
@@ -31,6 +38,8 @@ function FancyRenderEngine({ zoom, elements = [] }: RenderEngineProps) {
           <FancyImageElement
             key={img.id}
             image={img}
+            selected={selectedElement?.id === img.id}
+            onSelect={handleNodeSelect}
             onChangePosition={handleNodePositionChanges}
           />
         ))}

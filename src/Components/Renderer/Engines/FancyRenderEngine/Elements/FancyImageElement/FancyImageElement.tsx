@@ -8,10 +8,13 @@ import { FancyElementInterface } from "../../../../../../Core/Models/FancyElemen
 
 interface FancyImageProps<T extends FancyElement> {
   image: FancyElementInterface;
+  selected: boolean;
+  onSelect: (element: FancyElementInterface) => void;
   onChangePosition: (element: FancyElementInterface, position: { x: number; y: number }) => void;
+
 }
 
-const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image, onChangePosition }) => {
+const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image, onChangePosition,onSelect,selected =false }) => {
   const [position, setPosition] = useState({ x: image.position.x, y: image.position.y });
   const [isDragging, setIsDragging] = useState(false);
    
@@ -38,6 +41,8 @@ const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image,
       onChangePosition(updatedImage, { x: data.x, y: data.y });
   };
 
+
+
   return (
     <Rnd
       key={image.id}
@@ -45,17 +50,20 @@ const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image,
       position={position}
       onDrag={eventControl}
       onDragStop={handleOnChangePosition} 
-      onClick={(e:any) => {
-        if (!isDragging) {
+    
+      onClick={(e: any) => {
           e.stopPropagation();
-        }
+          console.log("image")
+          onSelect(image); // 🔥 Call onSelect here
+       
       }}
       lockAspectRatio={false}
       minWidth={50}
       minHeight={50}
       bounds=".dragContainer"
+      
     >
-      <img className={styles.FancyImageElement} src={image.path} alt="Fancy Element" />
+      <img  className={`${styles.FancyImageElement} ${selected ? styles.selected : ""}`} src={image.path} alt="Fancy Element" />
     </Rnd>
   );
 };

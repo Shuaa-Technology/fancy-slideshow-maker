@@ -1,9 +1,13 @@
 .FancyImageElement {
     width: 100%;
     height: 100%;
-    object-fit: fill; /* Ensure image fits within Rnd */
-    pointer-events: none; /* Prevent image from intercepting drag events */
-  }
+    object-fit: fill;
+    /* Ensure image fits within Rnd */
+    pointer-events: none;
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+    /* Prevent image from intercepting drag events */
+}
 
 .wrapper {
     cursor: pointer;
@@ -11,7 +15,7 @@
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-  
+
     padding: 2px;
     z-index: 2;
     /* background-color: rgba(226, 225, 215, 0.1) */
@@ -21,3 +25,10 @@
     border: 2px solid rgb(61, 61, 75, 0.8);
     cursor: pointer;
 }
+
+
+.FancyImageElement.selected {
+    outline: 2px solid #4A90E2;
+    box-shadow: 0 0 6px rgba(74, 144, 226, 0.6);
+    border-radius: 4px;
+  }

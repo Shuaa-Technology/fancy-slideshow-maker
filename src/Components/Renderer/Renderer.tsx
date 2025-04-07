@@ -4,16 +4,18 @@ import FancyRenderEngine from "./Engines/FancyRenderEngine/FancyRenderEngine";
 import FancyElement from "../../Core/Models/FancyElements/FancyElement";
 import FancySimpleImage from "../../Core/Models/FancyElements/FancySimpleImage/FancySimpleImage";
 import { SlideInterface } from "../../Core/Models/Slide/SlideInterface";
+import { FancyElementInterface } from "../../Core/Models/FancyElements/FancyElementInterface";
 
 interface SlidesListProps {
    // @todo: to centralize
   slides: SlideInterface[];
   selectedSlide: SlideInterface;
+  selectedElement: FancyElementInterface | null;
 }
 
 
-function Renderer({ slides, selectedSlide }: SlidesListProps) {
-  console.log((selectedSlide.getScene()!).getElements())
+function Renderer({ slides, selectedSlide,selectedElement }: SlidesListProps) {
+
   const [zoomLevel, setZoomLevel] = useState(100); // Initial zoom level, you can set it to any default value
 
   const handleZoomChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +30,7 @@ function Renderer({ slides, selectedSlide }: SlidesListProps) {
           <div className={styles.RendererContainer}>
               {/* Test current rendrer according to config */}
 
-              <FancyRenderEngine zoom={zoomLevel} elements={(selectedSlide.getScene()!).getElements()}/>
+              <FancyRenderEngine zoom={zoomLevel} elements={(selectedSlide.getScene()!).getElements()} selectedElement={selectedElement}/>
 
               <div className={styles.RendererControls}>
                   <div className={styles.RendererZoom}>
