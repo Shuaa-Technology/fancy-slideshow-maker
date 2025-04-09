@@ -9,12 +9,12 @@
 ### 🚀 For Users
 
 - **🔄 Intuitive Map Navigation** - Explore your presentation through our innovative map-inspired slider interface
-- **🖱️ Drag-and-Drop ** - Position elements precisely with our responsive drag-and-drop interface
+- **🖱️ Drag-and-Drop** - Position elements precisely with our responsive drag-and-drop interface
 - **🎭 Rich Media Support** - Incorporate text, images, shapes, and more into your presentations
 - **🎨 Complete Customization** - Personalize every aspect with custom fonts, colors, and layouts
 - **📱 Device Versatility** - Create and present on any device with our fully responsive design
 - **🔄 Effortless Organization** - Add, delete, rearrange, and manage slides with simple controls
-- **🤝 Many more!
+- **🤝 Many more!**
 
 ### 🛠️ Technical Architecture
 
