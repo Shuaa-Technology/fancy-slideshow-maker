@@ -29,22 +29,7 @@ function Renderer({ slides, selectedSlide,selectedElement }: SlidesListProps) {
           <span className="text-gray-500 text-xs mb-2">{selectedSlide.title}</span>
           <div className={styles.RendererContainer}>
               {/* Test current rendrer according to config */}
-
               <FancyRenderEngine zoom={zoomLevel} elements={(selectedSlide.getScene()!).getElements()} selectedElement={selectedElement}/>
-
-              <div className={styles.RendererControls}>
-                  <div className={styles.RendererZoom}>
-                      <input
-                          type="range"
-                          min={30}
-                          max={100}
-                          value={zoomLevel}
-                          onChange={handleZoomChange}
-                          className={styles.CustomRange} // Add a custom class for styling
-                      />
-                      <span>{zoomLevel}%</span> {/* Display the current zoom level */}
-                  </div>
-              </div>
           </div>
       </div>
   );

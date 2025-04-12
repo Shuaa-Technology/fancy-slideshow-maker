@@ -1,9 +1,9 @@
 .MainContainer {
     display: flex;
-    flex: auto;
     flex-direction: column;
     justify-content: flex-end;
-    width: 70%;
+    flex: 1;
+    overflow-x: hidden;
 }
 .MainContainerMain {
     align-items: center;

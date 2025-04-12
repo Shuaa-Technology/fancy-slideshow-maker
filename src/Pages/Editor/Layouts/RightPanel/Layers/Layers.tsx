@@ -1,61 +1,88 @@
 // Components/Layers/Layers.tsx
 import React, { useState } from "react";
-import { FaFont, FaSquare, FaImage, FaChevronRight, FaChevronDown } from "react-icons/fa";
+import Layer from "./Layer";
+import {Layer as LayerT, LayerType} from "../../../../../Core/types/layers";
 
 const Layers: React.FC = () => {
-    const [isGroupOpen, setIsGroupOpen] = useState(true);
+    // Sample dynamic JSON structure for layers
+    const [layers, setLayers] = useState<LayerT[]>([
+        {
+            id: "1",
+            name: "Fancy Slider",
+            type: LayerType.Text,
+            visible: true,
+        },
+        {
+            id: "2",
+            name: "Group 1",
+            type: LayerType.Group,
+            visible: true,
+            children: [
+                {
+                    id: "2-1",
+                    name: "Fancy Slider",
+                    type: LayerType.Text,
+                    visible: true,
+                },
+                {
+                    id: "2-2",
+                    name: "Not Just Slides A Fancy...",
+                    type: LayerType.Text,
+                    visible: true,
+                },
+                {
+                    id: "2-3",
+                    name: "Rectangle1",
+                    type: LayerType.Shape,
+                    visible: true,
+                    color: "#3B82F6", // Blue
+                },
+                {
+                    id: "2-4",
+                    name: "Rectangle2",
+                    type: LayerType.Shape,
+                    visible: true,
+                    color: "#FBBF24", // Yellow
+                },
+                {
+                    id: "2-5",
+                    name: "flowers.png",
+                    type: LayerType.Image,
+                    visible: true,
+                },
+            ],
+        },
+    ]);
+
+    const toggleVisibility = (id: string) => {
+        const updateLayerVisibility = (layer: LayerT): LayerT => {
+            if (layer.id === id) {
+                return { ...layer, visible: !layer.visible };
+            }
+            if (layer.children) {
+                return { ...layer, children: layer.children.map(updateLayerVisibility) };
+            }
+            return layer;
+        };
+
+        setLayers(layers.map(updateLayerVisibility));
+    };
+
+    const handleToggleGroup = (id: string) => {
+        // Optional: Add logic if you need to track group state globally
+    };
 
     return (
         <div className="p-4 text-white">
-            {/* Layer items */}
             <div className="space-y-2">
-                {/* Top-level Text */}
-                <div className="flex items-center gap-2">
-                    <FaFont className="text-gray-400" size={16} />
-                    <span>Fancy Slider</span>
-                </div>
-
-                {/* Group 1 (Collapsible) */}
-                <div>
-                    <div
-                        className="flex items-center gap-2 cursor-pointer"
-                        onClick={() => setIsGroupOpen(!isGroupOpen)}
-                    >
-                        {isGroupOpen ? (
-                            <FaChevronDown className="text-gray-400" size={12} />
-                        ) : (
-                            <FaChevronRight className="text-gray-400" size={12} />
-                        )}
-                        <span className="text-gray-400">⋮⋮</span>
-                        <span>Group 1</span>
-                    </div>
-
-                    {/* Nested Items (shown if group is open) */}
-                    {isGroupOpen && (
-                        <div className="ml-6 space-y-2 mt-2">
-                            <div className="flex items-center gap-2">
-                                <FaFont className="text-gray-400" size={16} />
-                                <span>Fancy Slider</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <FaFont className="text-gray-400" size={16} />
-                                <span>Not Just Slides A Fancy...</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <FaSquare className="text-blue-500" size={16} />
-                                <span>Rectangle1</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <FaSquare className="text-yellow-500" size={16} />
-                                <span>Rectangle2</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <FaImage className="text-gray-400" size={16} />
-                                <span>flowers.png</span>
-                            </div>
-                        </div>
-                    )}
-                </div>
+                {layers.map((layer) => (
+                    <Layer
+                        key={layer.id}
+                        layer={layer}
+                        onToggleVisibility={toggleVisibility}
+                        onToggleGroup={handleToggleGroup}
+                    />
+                ))}
             </div>
         </div>
     );
