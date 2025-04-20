@@ -15,7 +15,7 @@ type ElementType = 'image' | 'text' | 'shape';
 const DUMMY_SLIDES: Slide[] = Array.from({ length: 10 }, (_, index) => {
   const scences = [
     new Scene("RANDOM SCENE").setElements(
-    /*   generateDummyElements(index) */[]
+    []
     ),
   ];
 
@@ -154,31 +154,6 @@ export const slidesSlice = createSlice({
 
 
 
-// Dummy slides
-const generateDummyElements = (seed: number): FancyElement[] => {
-  const dummyElements: FancyElement[] = [];
-
-  for (let i = 1; i <= 6; i++) {
-    const element = new FancySimpleImage(
-      i.toString(),
-      `Element ${i}${seed} `,
-      `thumbnail${i}${seed}.jpg`,
-      `Description ${i}${seed}`,
-      `https://picsum.photos/200/300?random=${i}${seed}`
-    );
-
-    // Assign random positions and dimensions
-    element.position = { x: Math.random() * 100, y: Math.random() * 100 };
-    element.dimensions = {
-      height: Math.random() * 200,
-      width: Math.random() * 200,
-    };
-
-    dummyElements.push(element);
-  }
-
-  return dummyElements;
-};
 export const { selectSlide, addViewportElement,selectViewportElement, updateViewportElement } = slidesSlice.actions;
 
 // State selectors
