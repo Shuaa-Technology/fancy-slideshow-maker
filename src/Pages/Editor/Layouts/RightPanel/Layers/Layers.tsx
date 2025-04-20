@@ -24,7 +24,7 @@ const Layers: React.FC = () => {
             return layer;
         };
 
-        setLayers(elements.map(updateLayerVisibility));
+        //setLayers(elements.map(updateLayerVisibility));
     };
 
     const handleToggleGroup = (id: string) => {

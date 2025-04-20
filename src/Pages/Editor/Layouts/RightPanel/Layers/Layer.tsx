@@ -88,7 +88,7 @@ const Layer: React.FC<elementProps> = ({ element, depth = 0, onToggleVisibility,
             </div>
 
             {/* Nested elements (for groups) */}
-            <AnimatePresence>
+       {/*      <AnimatePresence>
                 {element.type === "GROUP" && isGroupOpen && element.childrens && (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
@@ -108,7 +108,7 @@ const Layer: React.FC<elementProps> = ({ element, depth = 0, onToggleVisibility,
                         ))}
                     </motion.div>
                 )}
-            </AnimatePresence>
+            </AnimatePresence> */}
         </div>
     );
 };
