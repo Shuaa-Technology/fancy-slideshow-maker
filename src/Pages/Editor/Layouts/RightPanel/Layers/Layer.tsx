@@ -1,44 +1,53 @@
-// Components/Layers/Layer.tsx
+// Components/elements/element.tsx
 import React, { useState } from "react";
 import { FaFont, FaSquare, FaImage, FaEye, FaEyeSlash } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
-import { LayerProps, LayerType } from "../../../../../Core/types/layers";
-import { FaChevronDown, FaChevronRight } from "react-icons/fa6";
 
-const Layer: React.FC<LayerProps> = ({ layer, depth = 0, onToggleVisibility, onToggleGroup }) => {
+import { FaChevronDown, FaChevronRight } from "react-icons/fa6";
+import { FancyElementInterface } from "../../../../../Core/Models/FancyElements/FancyElementInterface";
+
+
+export interface elementProps {
+    element: FancyElementInterface;
+    depth?: number;
+    onToggleVisibility: (id: string) => void;
+    onToggleGroup?: (id: string) => void;
+}
+
+const Layer: React.FC<elementProps> = ({ element, depth = 0, onToggleVisibility, onToggleGroup }) => {
     const [isGroupOpen, setIsGroupOpen] = useState(true);
 
     const handleToggleGroup = () => {
         setIsGroupOpen(!isGroupOpen);
-        if (onToggleGroup) onToggleGroup(layer.id);
+        if (onToggleGroup) onToggleGroup(element.id);
     };
 
-    // Determine the icon based on layer type if not provided
+    // Determine the icon based on element type if not provided
     const getDefaultIcon = () => {
-        switch (layer.type) {
-            case LayerType.Text:
+        switch (element.type) {
+            case "TEXT":
                 return FaFont;
-            case LayerType.Shape:
+            case "SHAPE":
                 return FaSquare;
-            case LayerType.Image:
+            case "IMAGE":
                 return FaImage;
             default:
                 return FaFont;
         }
     };
 
-    const Icon = layer.icon || getDefaultIcon();
+    const Icon = /* element.icon || */ getDefaultIcon();
 
     return (
         <div className="space-y-0.5">
-            {/* Layer Item */}
+            {/* element Item */}
             <div
                 className="flex items-center gap-1.5 cursor-pointer flex-nowrap hover:bg-gray-800 rounded-sm py-1"
                 style={{ paddingLeft: `${depth * 1.2}rem` }} // Subtle indentation
             >
                 {/* Visibility Toggle */}
-                <div onClick={() => onToggleVisibility(layer.id)}>
-                    {layer.visible ? (
+                <div onClick={() => onToggleVisibility(element.id)}>
+                    {element.visibility == "visible" ? (
                         <FaEye className="text-gray-400" size={12} />
                     ) : (
                         <FaEyeSlash className="text-gray-400" size={12} />
@@ -46,7 +55,7 @@ const Layer: React.FC<LayerProps> = ({ layer, depth = 0, onToggleVisibility, onT
                 </div>
 
                 {/* Group Toggle (if applicable) */}
-                {layer.type === LayerType.Group && (
+                {element.type === "GROUP" && (
                     <div className="flex items-center gap-0.5" onClick={handleToggleGroup}>
                         <motion.div
                             animate={{ rotate: isGroupOpen ? 0 : -90 }}
@@ -58,29 +67,29 @@ const Layer: React.FC<LayerProps> = ({ layer, depth = 0, onToggleVisibility, onT
                     </div>
                 )}
 
-                {/* Layer Icon and Name */}
+                {/* element Icon and Name */}
                 <div className="flex items-center gap-1.5">
                     <Icon
                         className={`${
-                            layer.type === LayerType.Shape && layer.color ? "" : "text-gray-400"
+                            element.type ===  "SHAPE" && element.color ? "" : "text-gray-400"
                         }`}
                         size={14} // Smaller icon to match Figma
-                        style={layer.type === LayerType.Shape && layer.color ? { color: layer.color } : {}}
+                        style={element.type ===  "SHAPE" && element.color ? { color: element.color } : {}}
                     />
                     <span
-                        className={`text-xs ${!layer.visible ? "opacity-50" : ""} ${
-                            layer.type === LayerType.Group ? "text-gray-400" : "text-white"
+                        className={`text-xs ${element.visibility == "visible" ? "opacity-50" : ""} ${
+                            element.type === "GROUP" ? "text-gray-400" : "text-white"
                         }`}
                         style={{ fontSize: "0.8rem" }} // Match Figma font size
                     >
-            {layer.name}
+            {element.name}
           </span>
                 </div>
             </div>
 
-            {/* Nested Layers (for groups) */}
+            {/* Nested elements (for groups) */}
             <AnimatePresence>
-                {layer.type === LayerType.Group && isGroupOpen && layer.children && (
+                {element.type === "GROUP" && isGroupOpen && element.childrens && (
                     <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
@@ -88,10 +97,10 @@ const Layer: React.FC<LayerProps> = ({ layer, depth = 0, onToggleVisibility, onT
                         transition={{ duration: 0.2, ease: "easeInOut" }}
                         className="space-y-0.5"
                     >
-                        {layer.children.map((child) => (
+                        {element.childrens.map((child:FancyElementInterface[]) => (
                             <Layer
                                 key={child.id}
-                                layer={child}
+                                element={child}
                                 depth={depth + 1}
                                 onToggleVisibility={onToggleVisibility}
                                 onToggleGroup={onToggleGroup}

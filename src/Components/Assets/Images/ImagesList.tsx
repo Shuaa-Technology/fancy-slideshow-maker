@@ -28,7 +28,7 @@ function ImageList() {
   const imageData = getImageData();
 
   const handleAddImage = (path: string) => {
-    const elem = ElementFactory.createElement("image", { url: path, name: "My Image" });
+    const elem = ElementFactory.createElement("image", { url: path});
     dispatch(addViewportElement(elem));
   };
 

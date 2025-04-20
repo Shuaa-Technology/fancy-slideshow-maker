@@ -38,7 +38,6 @@ export class ElementFactory {
         element = new FancySimpleImage(
           crypto.randomUUID(),
           data.name || "Element",
-          data.thumbnail || "thumbnail.jpg",
           data.description || "Description",
           data.url
         );

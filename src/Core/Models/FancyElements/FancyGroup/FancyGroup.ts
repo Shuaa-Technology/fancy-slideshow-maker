@@ -1,22 +1,23 @@
 import FancyImageElement from "../../../../Components/Renderer/Engines/FancyRenderEngine/Elements/FancyImageElement/FancyImageElement";
 import FancyElement from "../FancyElement";
+import { FancyElementInterface } from "../FancyElementInterface";
 
-class FancySimpleImage extends FancyElement {
-  path?: string = ""; 
-  type: string = "IMAGE";
+class FancyGroup extends FancyElement {
+  type: string = "GROUP";
+  childrens: FancyElementInterface[] = [];
   constructor(
     id: string,
     name: string,
     description: string,
-    path: string 
+    childrens: FancyElementInterface[]
   ) {
     super(id, name, description);
-    this.path = path;
+    this.childrens = childrens;
   }
 
   getComponent():string  {
-    return "FancyImageElement";
+    return "FancyGroupElement";
   }
 }
 
-export default FancySimpleImage;
+export default FancyGroup;

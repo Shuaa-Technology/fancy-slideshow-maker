@@ -1,4 +1,6 @@
 import { IconType } from "react-icons";
+import FancyElement from "../Models/FancyElements/FancyElement";
+import { FancyElementInterface } from "../Models/FancyElements/FancyElementInterface";
 
 export enum LayerType {
     Text = "text",
@@ -7,19 +9,17 @@ export enum LayerType {
     Group = "group",
 }
 
-export interface Layer {
+export interface LayerInterface {
     id: string;
     name: string;
+    element?: FancyElementInterface | null
     type: LayerType;
     visible: boolean;
-    color?: string; // For shapes
-    children?: Layer[]; // For nested layers (groups)
+    color?: string; 
+    children?: LayerInterface[]; // For nested layers (groups)
     icon?: IconType; // Custom icon for the layer
 }
 
-export interface LayerProps {
-    layer: Layer;
-    depth?: number;
-    onToggleVisibility: (id: string) => void;
-    onToggleGroup?: (id: string) => void;
-}
+
+
+

@@ -1,19 +1,15 @@
+import { ViewportInterface } from "../../Types/ViewportInterface";
 
-export interface FancyElementInterface {
+export interface FancyElementInterface extends ViewportInterface {
   id: string;
   version: number;
+  type: string ;
   name: string;
-  description: string;
+  description?: string;
   thumbnail?: string;
   path?: string 
-  position: {
-    x: number;
-    y: number;
-  };
-  dimensions: {
-    height: number;
-    width: number;
-  };
+ 
+
 
   getPosition(): { x: number; y: number };
 

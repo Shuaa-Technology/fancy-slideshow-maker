@@ -1,61 +1,20 @@
 // Components/Layers/Layers.tsx
 import React, { useState } from "react";
 import Layer from "./Layer";
-import {Layer as LayerT, LayerType} from "../../../../../Core/types/layers";
+import {LayerInterface , LayerType} from "../../../../../Core/Types/Layers";
+import { useSelector } from "react-redux";
+import { getSelectedElement, getSelectedSlide } from "../../../../../app/slices/slidesSlice";
 
 const Layers: React.FC = () => {
-    // Sample dynamic JSON structure for layers
-    const [layers, setLayers] = useState<LayerT[]>([
-        {
-            id: "1",
-            name: "Fancy Slider",
-            type: LayerType.Text,
-            visible: true,
-        },
-        {
-            id: "2",
-            name: "Group 1",
-            type: LayerType.Group,
-            visible: true,
-            children: [
-                {
-                    id: "2-1",
-                    name: "Fancy Slider",
-                    type: LayerType.Text,
-                    visible: true,
-                },
-                {
-                    id: "2-2",
-                    name: "Not Just Slides A Fancy...",
-                    type: LayerType.Text,
-                    visible: true,
-                },
-                {
-                    id: "2-3",
-                    name: "Rectangle1",
-                    type: LayerType.Shape,
-                    visible: true,
-                    color: "#3B82F6", // Blue
-                },
-                {
-                    id: "2-4",
-                    name: "Rectangle2",
-                    type: LayerType.Shape,
-                    visible: true,
-                    color: "#FBBF24", // Yellow
-                },
-                {
-                    id: "2-5",
-                    name: "flowers.png",
-                    type: LayerType.Image,
-                    visible: true,
-                },
-            ],
-        },
-    ]);
+
+    const selectedSlide = useSelector(getSelectedSlide);
+    const selectedElement = useSelector(getSelectedElement);
+    const elements = selectedSlide.getScene()!.getElements();
+
+
 
     const toggleVisibility = (id: string) => {
-        const updateLayerVisibility = (layer: LayerT): LayerT => {
+        const updateLayerVisibility = (layer: LayerInterface): LayerInterface => {
             if (layer.id === id) {
                 return { ...layer, visible: !layer.visible };
             }
@@ -65,7 +24,7 @@ const Layers: React.FC = () => {
             return layer;
         };
 
-        setLayers(layers.map(updateLayerVisibility));
+        setLayers(elements.map(updateLayerVisibility));
     };
 
     const handleToggleGroup = (id: string) => {
@@ -74,15 +33,15 @@ const Layers: React.FC = () => {
 
     return (
         <div className="p-4 text-white">
-            <div className="space-y-2">
-                {layers.map((layer) => (
-                    <Layer
-                        key={layer.id}
-                        layer={layer}
-                        onToggleVisibility={toggleVisibility}
-                        onToggleGroup={handleToggleGroup}
-                    />
-                ))}
+            <div className="space-y-2" >
+            {elements.map((element) => (
+                <Layer
+                key={element.id}
+                element={element} // Pass element instead of layer
+                onToggleVisibility={toggleVisibility}
+                onToggleGroup={handleToggleGroup}
+                />
+            ))}
             </div>
         </div>
     );

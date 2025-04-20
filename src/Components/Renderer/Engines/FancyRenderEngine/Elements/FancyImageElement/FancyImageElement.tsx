@@ -54,7 +54,7 @@ const FancyImageElement: React.FC<FancyImageProps<FancySimpleImage>> = ({ image,
       onClick={(e: any) => {
           e.stopPropagation();
           console.log("image")
-          onSelect(image); // 🔥 Call onSelect here
+          onSelect(image); 
        
       }}
       lockAspectRatio={false}
