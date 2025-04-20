@@ -12,7 +12,7 @@ import { randomBytes } from "crypto";
 // we have an enum or type for element types for now
 type ElementType = 'image' | 'text' | 'shape';
 
-const DUMMY_SLIDES: Slide[] = Array.from({ length: 10 }, (_, index) => {
+const DEFAULT_SLIDES: Slide[] = Array.from({ length: 3 }, (_, index) => {
   const scences = [
     new Scene("RANDOM SCENE").setElements(
     []
@@ -35,8 +35,8 @@ export interface SlidesState {
 }
 
 const initialState: SlidesState = {
-  entries: DUMMY_SLIDES,
-  selectedSlide: DUMMY_SLIDES[0],
+  entries: DEFAULT_SLIDES,
+  selectedSlide: DEFAULT_SLIDES[0],
   selectedElement:null,
   status: "idle",
 };
