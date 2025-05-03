@@ -1,5 +1,4 @@
-
-import { Visibility } from "../../Types/ViewportInterface";
+import { Visibility } from "../../types/ViewportInterface";
 import { FancyElementInterface } from "./FancyElementInterface";
 
 abstract class FancyElement implements FancyElementInterface {
