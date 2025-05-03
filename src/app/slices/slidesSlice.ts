@@ -70,7 +70,7 @@ export const slidesSlice = createSlice({
     updateViewportElement: (state, action: PayloadAction<FancyElementInterface>) => {
       if (!state.selectedSlide) return;
 
-      const element = action.payload;
+      const element = action.payload as { id?: string; position?: { x: number; y: number } }; // Type assertion
       if (!element?.id || !element?.position) {
         console.warn("updateViewportElement: Invalid element - missing required properties");
         return;
