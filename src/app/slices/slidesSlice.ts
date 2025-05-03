@@ -71,7 +71,7 @@ export const slidesSlice = createSlice({
       if (!state.selectedSlide) return;
 
       const element = action.payload;
-      if (!element?.id || typeof element.position !== "object") {
+      if (!element?.id || !element.position) {
         console.warn("updateViewportElement: Invalid element - missing required properties");
         return;
       }
