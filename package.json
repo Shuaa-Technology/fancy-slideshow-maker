@@ -20,7 +20,7 @@
     "react-scripts": "5.0.1",
     "react-tabs": "^6.0.2",
     "redux": "^5.0.1",
-    "typescript": "^4.9.5",
+    "typescript": "4.9.5",
     "uuid": "^9.0.1",
     "web-vitals": "^2.1.4"
   },
