@@ -1,4 +1,4 @@
-import { ViewportInterface } from "../../Types/ViewportInterface";
+import { ViewportInterface } from "../../types/ViewportInterface";
 
 export interface FancyElementInterface extends ViewportInterface {
   id: string;

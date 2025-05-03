@@ -1,7 +1,7 @@
 // Components/Layers/Layers.tsx
 import React, { useState } from "react";
 import Layer from "./Layer";
-import {LayerInterface , LayerType} from "../../../../../Core/Types/Layers";
+import {LayerInterface , LayerType} from "../../../../../Core/types/layers";
 import { useSelector } from "react-redux";
 import { getSelectedElement, getSelectedSlide } from "../../../../../app/slices/slidesSlice";
 
