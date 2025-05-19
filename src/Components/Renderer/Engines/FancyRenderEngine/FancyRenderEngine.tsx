@@ -15,7 +15,6 @@ function FancyRenderEngine({ zoom, elements = [], selectedElement = null }: Rend
   const dispatch = useAppDispatch();
 
   const handleNodeSelect = (element: FancyElementInterface) => {
-    console.log(element)
     dispatch(selectViewportElement(element));
   };
 

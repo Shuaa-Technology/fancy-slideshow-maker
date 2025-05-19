@@ -15,7 +15,7 @@ abstract class FancyElement implements FancyElementInterface {
   };
 
   visibility: Visibility = 'visible';
-  color: string = "#fff"; 
+  color: string = "#fff";
   constructor(
     id: string,
     name: string,
@@ -41,12 +41,19 @@ abstract class FancyElement implements FancyElementInterface {
   }
 
 
+
   getDimensions(): { height: number; width: number } {
     return this.dimensions;
   }
 
   setDimensions(newDimensions: { height: number; width: number }) {
     this.dimensions = newDimensions;
+  }
+
+  setVisiblilty(visibility: Visibility): FancyElementInterface {
+    const newInstance = this.clone();
+    newInstance.visibility = visibility
+    return newInstance;
   }
 
   abstract getComponent(): string

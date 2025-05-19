@@ -1,4 +1,4 @@
-import { ViewportInterface } from "../../types/ViewportInterface";
+import { ViewportInterface, Visibility } from "../../types/ViewportInterface";
 
 export interface FancyElementInterface extends ViewportInterface {
   id: string;
@@ -14,4 +14,7 @@ export interface FancyElementInterface extends ViewportInterface {
   getPosition(): { x: number; y: number };
 
   setPosition(x: number, y: number):FancyElementInterface;
+
+  setVisiblilty(visibility: Visibility): FancyElementInterface;
+  
 }

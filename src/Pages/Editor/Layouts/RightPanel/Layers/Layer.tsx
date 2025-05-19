@@ -10,7 +10,7 @@ import { FancyElementInterface } from "../../../../../Core/Models/FancyElements/
 export interface elementProps {
     element: FancyElementInterface;
     depth?: number;
-    onToggleVisibility: (id: string) => void;
+    onToggleVisibility: (element: FancyElementInterface) => void;
     onToggleGroup?: (id: string) => void;
 }
 
@@ -46,7 +46,7 @@ const Layer: React.FC<elementProps> = ({ element, depth = 0, onToggleVisibility,
                 style={{ paddingLeft: `${depth * 1.2}rem` }} // Subtle indentation
             >
                 {/* Visibility Toggle */}
-                <div onClick={() => onToggleVisibility(element.id)}>
+                <div onClick={() => onToggleVisibility(element)}>
                     {element.visibility == "visible" ? (
                         <FaEye className="text-gray-400" size={12} />
                     ) : (
