@@ -33,15 +33,19 @@ function FancyRenderEngine({ zoom, elements = [], selectedElement = null }: Rend
   return (
     <div className={`dragContainer ${styles.FancyRenderEngine}`} style={{ position: "relative" }}>
       <div style={rendererInnerStyle}>
-        {elements.map((img) => (
-          <FancyImageElement
-            key={img.id}
-            image={img}
-            selected={selectedElement?.id === img.id}
-            onSelect={handleNodeSelect}
-            onChangePosition={handleNodePositionChanges}
-          />
-        ))}
+        {elements.map((img) => {
+          if (img.visibility !== "visible") return null;
+
+          return (
+            <FancyImageElement
+              key={img.id}
+              image={img}
+              selected={selectedElement?.id === img.id}
+              onSelect={handleNodeSelect}
+              onChangePosition={handleNodePositionChanges}
+            />
+          );
+        })}
       </div>
     </div>
   );
